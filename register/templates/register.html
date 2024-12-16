@@ -1,0 +1,49 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+Create Account
+{% endblock %}
+
+{% block content %}
+  <h1>Create Account</h1>
+
+ <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_username">Username:</label>
+        <input type="text" id="id_username" name="username" class="form-control" required>
+        <small class="form-text text-muted">
+            <p>Required, 150 character or fewer. Letter, digits and @/./+/-/_ only</p>
+
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="id_first_name">First Name:</label>
+        <input type="text" id="id_first_name" name="first_name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="id_last_name">Last Name:</label>
+        <input type="text" id="id_last_name" name="last_name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="id_email">Email:</label>
+        <input type="email" id="id_email" name="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="id_password">Password:</label>
+        <input type="password" id="id_password" name="password1" class="form-control" required>
+        <small class="form-text text-muted">
+            <p>Your password must be at least 8 characters long,and not be commonly used.</p>
+            <p>Your password must a combination of letters, numbers and special character.</p>
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="id_password2">Confirm Password:</label>
+        <input type="password" id="id_password2" name="password2" class="form-control" required>
+        <small class="form-text text-muted">
+            <p>Enter exact same password</p>
+        </small>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+ </form>
+{% endblock %}

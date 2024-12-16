@@ -1,0 +1,53 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block content %}
+<style>
+    table th {
+        color: black;
+    }
+</style>
+
+<div class="container">
+    <h2 class="text-center my-4">Admin</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>${{ product.price }}</td>
+                <td>
+                    <a href="{% url 'shop:product_edit' product.id %}" class="btn btn-secondary">Edit</a>
+                </td>
+
+                {% if product.quantity >= 1 %}
+                <td><button class="btn btn-danger btn-sm" disabled>Cannot delete - Product exists</button></td>
+                {% else %}
+                <td>
+                    <a href="{% url 'shop:product_delete' product.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <a href="{% url 'shop:product_create' %}" class="btn btn-primary">Add</a>
+    </div>
+</div>
+{% endblock %}
+

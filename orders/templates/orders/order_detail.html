@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    Order Details - Order ID: {{ order.id }}
+{% endblock %}
+
+{% block content %}
+    <h2>Order Details - Order ID: {{ order.id }}</h2>
+    <p>Name: {{ order.first_name }} {{ order.last_name }}</p>
+    <p>Email: {{ order.email }}</p>
+    <p>Address: {{ order.address }}, {{ order.city }}, {{ order.postal_code }}</p>
+    <p>Status: {{ order.paid|yesno:"Paid,Not Paid" }}</p>
+
+    <h3>Order Items:</h3>
+    <ul>
+        {% for item in order.items.all %}
+            <li><a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a> | Quantity: {{ item.quantity }} | Price: ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Add a New Product
+{% endblock %}
+
+{% block content %}
+    {% if perms.shop.add_product %}
+        <form method="post" enctype="multipart/form-data" class="product-form">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Add Product</button>
+            <a href="{% url 'shop:admin_page' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    {% else %}
+        <p>You do not have permission to add a product.</p>
+        <a href="{% url 'index' %}">Home</a>
+    {% endif %}
+{% endblock %}
+
