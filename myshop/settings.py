@@ -142,11 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'isqa3900group6@gmail.com'
-EMAIL_HOST_PASSWORD = 'yidc snqi ubgm ijxn'
+EMAIL_HOST_USER = 'isqa3900.850.g6@gmail.com'
+EMAIL_HOST_PASSWORD = 'cppy iejz gwgg qsgo'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-SERVER_EMAIL = 'isqa3900group6@gmail.com'
+SERVER_EMAIL = 'isqa3900.850.g6@gmail.com'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
